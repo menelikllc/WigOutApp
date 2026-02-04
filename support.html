@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — WigOut</title>
+    <meta name="description" content="Get help with WigOut. Contact support, find answers to common questions, and troubleshoot issues.">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #E8A849;
+            --gold-light: #F5C97A;
+            --gold-dark: #C4852E;
+            --warm-cream: #FFF8EE;
+            --warm-bg: #FFFAF3;
+            --deep-brown: #2A1810;
+            --mid-brown: #5C3A28;
+            --text-dark: #1E1209;
+            --text-mid: #4A3222;
+            --text-light: #7A5E48;
+            --glow: rgba(232, 168, 73, 0.3);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-bg);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 248, 238, 0.85);
+            border-bottom: 1px solid rgba(232, 168, 73, 0.15);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px var(--glow);
+        }
+
+        .nav-brand span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-brown);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold-dark); }
+        .nav-links a.active { color: var(--gold-dark); }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .nav-hamburger span {
+            width: 24px; height: 2px;
+            background: var(--deep-brown);
+            transition: all 0.3s;
+        }
+
+        /* ─── PAGE CONTENT ─── */
+        .page-header {
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+            background: var(--warm-cream);
+            border-bottom: 1px solid rgba(232, 168, 73, 0.12);
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 5vw, 3.5rem);
+            color: var(--deep-brown);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        /* ─── CONTACT CARD ─── */
+        .contact-card {
+            background: white;
+            border: 1px solid rgba(232, 168, 73, 0.12);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 24px rgba(42, 24, 16, 0.04);
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-brown);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            text-decoration: none;
+            padding: 0.85rem 2rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px var(--glow);
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px var(--glow);
+        }
+
+        /* ─── FAQ ─── */
+        .faq-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--deep-brown);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid rgba(232, 168, 73, 0.1);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(232, 168, 73, 0.25);
+        }
+
+        .faq-question {
+            padding: 1.4rem 1.8rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 1rem;
+            user-select: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 1.8rem 1.4rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--deep-brown);
+            color: rgba(255, 248, 238, 0.5);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .footer-brand img {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            opacity: 0.8;
+        }
+
+        .footer-brand span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: rgba(255, 248, 238, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 248, 238, 0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--gold-light); }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 248, 238, 0.08);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: var(--warm-cream);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid rgba(232, 168, 73, 0.15);
+                gap: 1.2rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="assets/icon.png" alt="WigOut">
+            <span>WigOut</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="support.html" class="active">Support</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Support</h1>
+        <p>We're here to help. Find answers below or reach out to us directly.</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- CONTACT -->
+        <div class="contact-card">
+            <h2>Get In Touch</h2>
+            <p>Having an issue or have a question about WigOut? Send us an email and we'll get back to you as soon as possible, typically within 24 hours.</p>
+            <a href="mailto:support@clouddesignstudio.com" class="contact-email">
+                ✉️ support@clouddesignstudio.com
+            </a>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How does WigOut generate hairstyle previews?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">WigOut uses advanced AI image generation technology. When you select a hairstyle and take a selfie, the app sends your photo to our secure servers where AI blends the selected hairstyle with your face, preserving your facial features while realistically applying the new hairstyle.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How long does it take to generate a hairstyle?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">Most hairstyle generations take between 15 to 30 seconds depending on server load. You'll see a loading indicator while the image is being generated.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why doesn't the generated image look right?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">For best results, take your selfie in good lighting with your face clearly visible and centered in the frame. Avoid hats, sunglasses, or anything covering your face. A plain background also helps the AI produce better results.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is my photo stored or shared?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">Your privacy is important to us. Photos are processed securely and are not shared with third parties. Generated images are stored temporarily for delivery to your device. Please see our <a href="privacy.html" style="color: var(--gold-dark);">Privacy Policy</a> for full details.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What devices are supported?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">WigOut is available for iPhone running iOS 16.0 or later. We recommend using an iPhone 11 or newer for the best camera quality and performance.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I save or share my generated hairstyle?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">Yes! After your hairstyle is generated, you can save the image to your camera roll or share it directly with friends and family using iOS's built-in sharing options.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">The app is crashing or not loading. What should I do?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">Try these steps: close and reopen the app, make sure you're connected to the internet, check that your iOS is up to date, and restart your device if needed. If the issue persists, contact us at support@clouddesignstudio.com.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/icon.png" alt="WigOut">
+                <span>WigOut</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <p class="footer-copy">&copy; 2026 Cloud Design Studio, LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
