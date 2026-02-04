@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — WigOut</title>
+    <meta name="description" content="WigOut Privacy Policy. Learn how we handle your data and protect your privacy.">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #E8A849;
+            --gold-light: #F5C97A;
+            --gold-dark: #C4852E;
+            --warm-cream: #FFF8EE;
+            --warm-bg: #FFFAF3;
+            --deep-brown: #2A1810;
+            --mid-brown: #5C3A28;
+            --text-dark: #1E1209;
+            --text-mid: #4A3222;
+            --text-light: #7A5E48;
+            --glow: rgba(232, 168, 73, 0.3);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-bg);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 248, 238, 0.85);
+            border-bottom: 1px solid rgba(232, 168, 73, 0.15);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px var(--glow);
+        }
+
+        .nav-brand span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-brown);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold-dark); }
+        .nav-links a.active { color: var(--gold-dark); }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .nav-hamburger span {
+            width: 24px; height: 2px;
+            background: var(--deep-brown);
+            transition: all 0.3s;
+        }
+
+        /* ─── PAGE CONTENT ─── */
+        .page-header {
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+            background: var(--warm-cream);
+            border-bottom: 1px solid rgba(232, 168, 73, 0.12);
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 5vw, 3.5rem);
+            color: var(--deep-brown);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .page-header .effective-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.75rem;
+            font-weight: 400;
+        }
+
+        .content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--deep-brown);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(232, 168, 73, 0.2);
+        }
+
+        .policy-section p {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .policy-section strong {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .policy-section a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(196, 133, 46, 0.3);
+            transition: border-color 0.3s;
+        }
+
+        .policy-section a:hover {
+            border-color: var(--gold-dark);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--deep-brown);
+            color: rgba(255, 248, 238, 0.5);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .footer-brand img {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            opacity: 0.8;
+        }
+
+        .footer-brand span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: rgba(255, 248, 238, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 248, 238, 0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--gold-light); }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 248, 238, 0.08);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: var(--warm-cream);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid rgba(232, 168, 73, 0.15);
+                gap: 1.2rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="assets/icon.png" alt="WigOut">
+            <span>WigOut</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="privacy.html" class="active">Privacy</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy matters to us. Here's how WigOut handles your information.</p>
+        <p class="effective-date">Effective Date: February 4, 2026</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="policy-section">
+            <h2>Introduction</h2>
+            <p>Cloud Design Studio, LLC ("we," "our," or "us") operates the WigOut mobile application (the "App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App. Please read this Privacy Policy carefully. By using the App, you agree to the collection and use of information in accordance with this policy.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Information We Collect</h2>
+            <p><strong>Photos and Camera Data:</strong> When you use WigOut, you take or upload photos using your device's camera. These photos are sent to our secure servers for AI-powered hairstyle generation. We do not permanently store your original photos beyond the time needed to process and deliver your generated hairstyle image.</p>
+            <p><strong>Generated Images:</strong> The AI-generated hairstyle images are temporarily stored on our servers to deliver them to your device. These images may be stored in your Firebase account for retrieval within the app.</p>
+            <p><strong>Device Information:</strong> We may collect general device information such as device type, operating system version, and unique device identifiers for the purpose of app functionality and crash reporting.</p>
+            <p><strong>Usage Data:</strong> We may collect anonymous usage data such as which features are used and how often, to help us improve the App. This data is not linked to your personal identity.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect to provide and maintain the App's functionality, specifically to generate AI-powered hairstyle previews based on your photos. We also use information to improve the App's performance and user experience, respond to your support requests and inquiries, monitor and analyze usage trends, and ensure the security and integrity of the App.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Third-Party Services</h2>
+            <p>WigOut uses the following third-party services to operate:</p>
+            <p><strong>Firebase (Google):</strong> We use Firebase for authentication, cloud storage, and cloud functions. Firebase may collect certain data as described in <a href="https://firebase.google.com/support/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+            <p><strong>Replicate:</strong> We use Replicate's AI models to generate hairstyle images. Your photo is sent to Replicate's servers for processing. Replicate processes the image and returns the generated result. Please refer to <a href="https://replicate.com/privacy" target="_blank">Replicate's Privacy Policy</a> for details on their data handling practices.</p>
+            <p>We do not sell, trade, or otherwise transfer your personal information to outside parties beyond what is described above.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Data Retention</h2>
+            <p>Original photos submitted for processing are not permanently stored and are discarded after the hairstyle generation is complete. Generated images may be retained in your Firebase storage for your continued access within the app. You may request deletion of your data at any time by contacting us.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Data Security</h2>
+            <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. All data transmitted between the App and our servers is encrypted using industry-standard HTTPS/TLS protocols.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Children's Privacy</h2>
+            <p>WigOut is rated 4+ and does not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us and we will take steps to delete such information.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Your Rights</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal information, including the right to access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, opt out of certain data collection practices, and data portability. To exercise any of these rights, please contact us using the information below.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to review this Privacy Policy periodically for any changes.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+            <p>
+                <strong>Cloud Design Studio, LLC</strong><br>
+                Email: <a href="mailto:support@clouddesignstudio.com">support@clouddesignstudio.com</a>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/icon.png" alt="WigOut">
+                <span>WigOut</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <p class="footer-copy">&copy; 2026 Cloud Design Studio, LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
