@@ -165,9 +165,9 @@
         }
 
         .hero-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 28px;
+            width: 360px;
+            height: 360px;
+            border-radius: 60px;
             box-shadow: 0 8px 40px var(--glow), 0 2px 10px rgba(0,0,0,0.1);
             margin-bottom: 2.5rem;
             animation: floatIcon 4s ease-in-out infinite;
@@ -346,8 +346,8 @@
         }
 
         .video-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            justify-content: center;
             gap: 2rem;
         }
 
@@ -357,6 +357,8 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(232, 168, 73, 0.15);
             transition: all 0.4s ease;
+            width: 280px;
+            flex-shrink: 0;
         }
 
         .video-card:hover {
@@ -370,7 +372,6 @@
             display: block;
             aspect-ratio: 9/16;
             object-fit: cover;
-            max-height: 500px;
         }
 
         /* ─── FEATURES ─── */
@@ -556,7 +557,8 @@
             }
 
             .steps { grid-template-columns: 1fr; gap: 1.5rem; }
-            .video-grid { grid-template-columns: 1fr; }
+            .video-grid { flex-direction: column; align-items: center; }
+            .video-card { width: 240px; }
             .feature-grid { grid-template-columns: 1fr; }
 
             .footer-content {
