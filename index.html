@@ -263,13 +263,13 @@
         .steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+            gap: 2.5rem;
             margin-top: 3.5rem;
         }
 
         .step {
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
+            padding: 2rem 1.5rem 2.5rem;
+            border-radius: 24px;
             background: white;
             border: 1px solid rgba(232, 168, 73, 0.12);
             box-shadow: 0 4px 24px rgba(42, 24, 16, 0.04);
@@ -277,28 +277,35 @@
         }
 
         .step:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(232, 168, 73, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(232, 168, 73, 0.18);
         }
 
-        .step-number {
-            width: 52px; height: 52px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: white;
+        /* Step Image Styling */
+        .step-image-container {
+            width: 180px;
+            height: 320px;
             margin: 0 auto 1.5rem;
-            box-shadow: 0 4px 16px var(--glow);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(42, 24, 16, 0.15);
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        }
+
+        .step-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .step:hover .step-image {
+            transform: scale(1.03);
         }
 
         .step h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--deep-brown);
             margin-bottom: 0.75rem;
         }
@@ -541,6 +548,21 @@
         }
 
         /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .steps { 
+                grid-template-columns: 1fr; 
+                gap: 2rem;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .step-image-container {
+                width: 200px;
+                height: 360px;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .nav-hamburger { display: flex; }
@@ -556,7 +578,6 @@
                 gap: 1.2rem;
             }
 
-            .steps { grid-template-columns: 1fr; gap: 1.5rem; }
             .video-grid { flex-direction: column; align-items: center; }
             .video-card { width: 240px; }
             .feature-grid { grid-template-columns: 1fr; }
@@ -619,18 +640,29 @@
             <span class="section-label fade-in">How It Works</span>
             <h2 class="section-title fade-in">Three Simple Steps</h2>
             <div class="steps">
+                <!-- Step 1: Choose a Style -->
                 <div class="step fade-in">
-                    <div class="step-number">1</div>
+                    <div class="step-image-container">
+                        <img src="assets/ChooseAStyle.png" alt="Choose a Style" class="step-image">
+                    </div>
                     <h3>Choose a Style</h3>
                     <p>Browse our curated catalog of hairstyles — from braids and locs to fades, bobs, and natural styles.</p>
                 </div>
+                
+                <!-- Step 2: Take a Selfie -->
                 <div class="step fade-in">
-                    <div class="step-number">2</div>
+                    <div class="step-image-container">
+                        <img src="assets/TakeASelfie.png" alt="Take a Selfie" class="step-image">
+                    </div>
                     <h3>Take a Selfie</h3>
                     <p>Use your camera to snap a photo. Our AI detects your face and prepares it for the transformation.</p>
                 </div>
+                
+                <!-- Step 3: See Your New Look -->
                 <div class="step fade-in">
-                    <div class="step-number">3</div>
+                    <div class="step-image-container">
+                        <img src="assets/SeeYourNewLook.png" alt="See Your New Look" class="step-image">
+                    </div>
                     <h3>See Your New Look</h3>
                     <p>In seconds, see a realistic preview of yourself wearing the hairstyle. Save it, share it, or try another.</p>
                 </div>
